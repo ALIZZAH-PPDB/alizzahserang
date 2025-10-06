@@ -16,11 +16,17 @@
       background: linear-gradient(135deg, #1c5c3a, #1c3b28);
       color: #fff;
       padding: 40px 20px;
+      position: relative;
     }
     header img {
       height: 100px;
       border-radius: 50%;
       margin-bottom: 15px;
+      position: absolute;
+      bottom: -50px;
+      right: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: 3px solid #fff;
     }
     header h1 {
       margin: 0;
@@ -50,7 +56,7 @@
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       padding: 30px;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .btn {
@@ -81,10 +87,21 @@
       transition: 0.3s;
       width: 80%;
       cursor: pointer;
+      position: relative;
     }
     .school-card:hover {
       background: #caffbf;
       transform: translateY(-4px);
+    }
+
+    .school-card a {
+      color: #1c3b28;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .school-card a:hover {
+      text-decoration: underline;
+      color: #155d30;
     }
 
     .class-list {
@@ -109,7 +126,7 @@
       background: #1c5c3a;
       color: #fff;
       padding: 30px 10px;
-      margin-top: 60px;
+      margin-top: 80px;
     }
     .social a {
       margin: 0 10px;
@@ -132,9 +149,9 @@
 <body>
 
   <header>
-    <img src="logo.png" alt="Logo Yayasan Al Izzah Serang">
     <h1>YAYASAN AL IZZAH SERANG</h1>
     <p>"Menjadi Yayasan Islam yang Unggul dalam Pendidikan di Tingkat Nasional"</p>
+    <img src="icon.png" alt="Logo Yayasan Al Izzah Serang">
   </header>
 
   <!-- Halaman Selamat Datang -->
@@ -156,27 +173,39 @@
     <div class="schools">
 
       <div class="school-card" onclick="toggleClassList('ra')">
-        RA Al Izzah ⬇
+        <a href="#">RA Al Izzah ⬇</a>
         <ul id="ra" class="class-list">
-          <li>Play Group</li>
-          <li>RA A</li>
-          <li>RA B</li>
-          <li>Kids Care</li>
+          <li><a href="https://alizzahserang.github.io/ra-playgroup" target="_blank">Play Group</a></li>
+          <li><a href="https://alizzahserang.github.io/ra-a" target="_blank">RA A</a></li>
+          <li><a href="https://alizzahserang.github.io/ra-b" target="_blank">RA B</a></li>
+          <li><a href="https://alizzahserang.github.io/kidscare" target="_blank">Kids Care</a></li>
         </ul>
       </div>
 
       <div class="school-card" onclick="toggleClassList('sdit1')">
-        SDIT 1 Al Izzah ⬇
+        <a href="#">SDIT 1 Al Izzah ⬇</a>
         <ul id="sdit1" class="class-list">
-          <li>Billingual</li>
-          <li>Reguler</li>
+          <li><a href="https://alizzahserang.github.io/sdit1-bilingual" target="_blank">Bilingual</a></li>
+          <li><a href="https://alizzahserang.github.io/sdit1-reguler" target="_blank">Reguler</a></li>
         </ul>
       </div>
 
-      <div class="school-card">SDIT 2 Al Izzah</div>
-      <div class="school-card">SMPIT Al Izzah Fullday</div>
-      <div class="school-card">SMPIT Al Izzah Boarding</div>
-      <div class="school-card">SMAIT Al Izzah Boarding</div>
+      <div class="school-card">
+        <a href="https://alizzahserang.github.io/sdit2" target="_blank">SDIT 2 Al Izzah</a>
+      </div>
+
+      <div class="school-card">
+        <a href="https://alizzahserang.github.io/smpit-fullday" target="_blank">SMPIT Al Izzah Fullday</a>
+      </div>
+
+      <div class="school-card">
+        <a href="https://alizzahserang.github.io/smpit-boarding" target="_blank">SMPIT Al Izzah Boarding</a>
+      </div>
+
+      <div class="school-card">
+        <a href="https://alizzahserang.github.io/smait-boarding" target="_blank">SMAIT Al Izzah Boarding</a>
+      </div>
+
     </div>
     <button class="btn" onclick="showWelcome()">⬅ Kembali</button>
   </section>
@@ -208,7 +237,7 @@
       const list = document.getElementById(id);
       const allLists = document.querySelectorAll('.class-list');
       allLists.forEach(l => {
-        if (l !== list) l.style.display = "none"; // tutup yang lain
+        if (l !== list) l.style.display = "none";
       });
       list.style.display = (list.style.display === "block") ? "none" : "block";
     }
@@ -216,4 +245,3 @@
 
 </body>
 </html>
-
