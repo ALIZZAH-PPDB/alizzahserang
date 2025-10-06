@@ -87,7 +87,6 @@
       transform: translateY(-4px);
     }
 
-    /* daftar kelas */
     .class-list {
       display: none;
       margin-top: 10px;
@@ -99,8 +98,11 @@
     }
     .class-list li {
       list-style: none;
-      padding: 5px 0;
+      padding: 6px 0;
       border-bottom: 1px solid #eaeaea;
+    }
+    .class-list li:last-child {
+      border-bottom: none;
     }
 
     footer {
@@ -153,9 +155,8 @@
     <h2>Pilihan Sekolah di Yayasan Al Izzah Serang</h2>
     <div class="schools">
 
-      <!-- RA AL IZZAH -->
       <div class="school-card" onclick="toggleClassList('ra')">
-        RA Al Izzah
+        RA Al Izzah ⬇
         <ul id="ra" class="class-list">
           <li>Play Group</li>
           <li>RA A</li>
@@ -164,27 +165,18 @@
         </ul>
       </div>
 
-      <!-- SDIT 1 AL IZZAH -->
       <div class="school-card" onclick="toggleClassList('sdit1')">
-        SDIT 1 Al Izzah
+        SDIT 1 Al Izzah ⬇
         <ul id="sdit1" class="class-list">
           <li>Billingual</li>
           <li>Reguler</li>
         </ul>
       </div>
 
-      <!-- SDIT 2 AL IZZAH -->
       <div class="school-card">SDIT 2 Al Izzah</div>
-
-      <!-- SMPIT FULLDAY -->
       <div class="school-card">SMPIT Al Izzah Fullday</div>
-
-      <!-- SMPIT BOARDING -->
       <div class="school-card">SMPIT Al Izzah Boarding</div>
-
-      <!-- SMAIT BOARDING -->
       <div class="school-card">SMAIT Al Izzah Boarding</div>
-
     </div>
     <button class="btn" onclick="showWelcome()">⬅ Kembali</button>
   </section>
@@ -205,6 +197,7 @@
       document.getElementById("schools").classList.add("active");
       window.scrollTo(0,0);
     }
+
     function showWelcome() {
       document.getElementById("schools").classList.remove("active");
       document.getElementById("welcome").classList.add("active");
@@ -215,7 +208,7 @@
       const list = document.getElementById(id);
       const allLists = document.querySelectorAll('.class-list');
       allLists.forEach(l => {
-        if (l !== list) l.style.display = "none";
+        if (l !== list) l.style.display = "none"; // tutup yang lain
       });
       list.style.display = (list.style.display === "block") ? "none" : "block";
     }
