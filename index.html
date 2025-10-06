@@ -15,8 +15,7 @@
     header {
       background: linear-gradient(135deg, #1c5c3a, #1c3b28);
       color: #fff;
-      padding: 40px 20px 60px;
-      position: relative;
+      padding: 40px 20px;
     }
     header img {
       height: 100px;
@@ -34,23 +33,27 @@
       margin-top: 5px;
       font-size: 16px;
     }
+
+    /* Bagian utama */
+    .section {
+      display: none;
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 0.6s ease;
+    }
+    .active {
+      display: block;
+    }
+
     .welcome {
-      margin: 50px auto;
-      padding: 20px;
-      max-width: 700px;
-      background: #ffffff;
+      background: #fff;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-top: 40px;
     }
-    .welcome h2 {
-      color: #1c5c3a;
-      margin-bottom: 10px;
-    }
-    .welcome p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-    }
+
     .btn {
       background: #ffb703;
       color: #1c3b28;
@@ -66,29 +69,25 @@
     .btn:hover {
       background: #ffd166;
     }
-    .school-list {
-      display: none;
-      margin-top: 30px;
-      background: #e9ffe4;
+
+    /* Pilihan sekolah */
+    .schools {
+      margin-top: 40px;
+    }
+    .school-card {
+      background: #eaffd0;
       padding: 20px;
+      margin: 15px auto;
       border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: fadeIn 0.4s ease;
-    }
-    .school-list a {
-      display: block;
-      text-decoration: none;
-      color: #1c3b28;
-      font-weight: 600;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 10px;
-      background: #caffbf;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
       transition: 0.3s;
+      width: 80%;
     }
-    .school-list a:hover {
-      background: #b7f59a;
+    .school-card:hover {
+      background: #caffbf;
+      transform: translateY(-4px);
     }
+
     footer {
       background: #1c5c3a;
       color: #fff;
@@ -106,6 +105,7 @@
     .social a:hover {
       color: #ffdf70;
     }
+
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(-10px);}
       to {opacity: 1; transform: translateY(0);}
@@ -120,23 +120,31 @@
     <p>"Mendidik dengan Cinta dan Keteladanan"</p>
   </header>
 
-  <section class="welcome">
-    <h2>Selamat Datang</h2>
-    <p>
-      Di website resmi Yayasan Al Izzah Serang.  
-      Kami berkomitmen mencetak generasi Islami yang berprestasi,  
-      berakhlak mulia, dan siap menghadapi tantangan zaman.  
-    </p>
-    <button class="btn" onclick="toggleSchools()">Lihat Pilihan Sekolah</button>
-
-    <div class="school-list" id="schools">
-      <a href="#">RA Al Izzah</a>
-      <a href="#">SDIT Al Izzah 1</a>
-      <a href="#">SDIT Al Izzah 2</a>
-      <a href="#">SMPIT Al Izzah Fullday</a>
-      <a href="#">SMPIT Al Izzah Boarding</a>
-      <a href="#">SMAIT Al Izzah Boarding</a>
+  <!-- Halaman Selamat Datang -->
+  <section id="welcome" class="section active">
+    <div class="welcome">
+      <h2>Selamat Datang</h2>
+      <p>
+        Di website resmi Yayasan Al Izzah Serang.  
+        Kami berkomitmen mencetak generasi Islami yang berprestasi,  
+        berakhlak mulia, dan siap menghadapi tantangan zaman.  
+      </p>
+      <button class="btn" onclick="showSchools()">Lihat Pilihan Sekolah</button>
     </div>
+  </section>
+
+  <!-- Halaman Pilihan Sekolah -->
+  <section id="schools" class="section">
+    <h2>Pilihan Sekolah di Yayasan Al Izzah Serang</h2>
+    <div class="schools">
+      <div class="school-card">RA Al Izzah</div>
+      <div class="school-card">SDIT Al Izzah 1</div>
+      <div class="school-card">SDIT Al Izzah 2</div>
+      <div class="school-card">SMPIT Al Izzah Fullday</div>
+      <div class="school-card">SMPIT Al Izzah Boarding</div>
+      <div class="school-card">SMAIT Al Izzah Boarding</div>
+    </div>
+    <button class="btn" onclick="showWelcome()">⬅ Kembali</button>
   </section>
 
   <footer>
@@ -150,13 +158,15 @@
   </footer>
 
   <script>
-    function toggleSchools() {
-      const list = document.getElementById("schools");
-      if (list.style.display === "block") {
-        list.style.display = "none";
-      } else {
-        list.style.display = "block";
-      }
+    function showSchools() {
+      document.getElementById("welcome").classList.remove("active");
+      document.getElementById("schools").classList.add("active");
+      window.scrollTo(0,0);
+    }
+    function showWelcome() {
+      document.getElementById("schools").classList.remove("active");
+      document.getElementById("welcome").classList.add("active");
+      window.scrollTo(0,0);
     }
   </script>
 
