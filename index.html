@@ -4,100 +4,161 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yayasan Al Izzah Serang</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; }
-    .hero {
-      background-image: url('icon.png'); /* ganti dengan nama foto sekolah kamu */
-      background-size: cover;
-      background-position: center;
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #f5fff3;
+      color: #1c3b28;
+      text-align: center;
+    }
+    header {
+      background: linear-gradient(135deg, #1c5c3a, #1c3b28);
+      color: #fff;
+      padding: 40px 20px 60px;
+      position: relative;
+    }
+    header img {
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-style: italic;
+      color: #ffdf70;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+    .welcome {
+      margin: 50px auto;
+      padding: 20px;
+      max-width: 700px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .welcome h2 {
+      color: #1c5c3a;
+      margin-bottom: 10px;
+    }
+    .welcome p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .btn {
+      background: #ffb703;
+      color: #1c3b28;
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ffd166;
+    }
+    .school-list {
+      display: none;
+      margin-top: 30px;
+      background: #e9ffe4;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fadeIn 0.4s ease;
+    }
+    .school-list a {
+      display: block;
+      text-decoration: none;
+      color: #1c3b28;
+      font-weight: 600;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      background: #caffbf;
+      transition: 0.3s;
+    }
+    .school-list a:hover {
+      background: #b7f59a;
+    }
+    footer {
+      background: #1c5c3a;
+      color: #fff;
+      padding: 30px 10px;
+      margin-top: 60px;
+    }
+    .social a {
+      margin: 0 10px;
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      color: #ffdf70;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
-<body class="bg-green-50 text-gray-800">
+<body>
 
-  <!-- HEADER -->
-  <header class="bg-green-800 text-yellow-300 py-4 shadow-md">
-    <div class="container mx-auto text-center">
-      <h1 class="text-3xl font-bold uppercase">YAYASAN AL IZZAH SERANG</h1>
-      <p class="italic text-white text-sm">"Mendidik dengan Cinta dan Keteladanan"</p>
-    </div>
+  <header>
+    <img src="logo.png" alt="Logo Yayasan Al Izzah Serang">
+    <h1>YAYASAN AL IZZAH SERANG</h1>
+    <p>"Mendidik dengan Cinta dan Keteladanan"</p>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero h-96 flex items-center justify-center text-center text-white">
-    <div class="bg-green-900 bg-opacity-70 p-8 rounded-2xl">
-      <h2 class="text-4xl font-bold mb-2 text-yellow-300">Selamat Datang di Al Izzah</h2>
-      <p class="mb-6">Pendidikan Terpadu Menuju Generasi Qurani, Cerdas, dan Mandiri</p>
-      <a href="#pilihan" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300 transition">Lihat Pilihan Sekolah</a>
+  <section class="welcome">
+    <h2>Selamat Datang</h2>
+    <p>
+      Di website resmi Yayasan Al Izzah Serang.  
+      Kami berkomitmen mencetak generasi Islami yang berprestasi,  
+      berakhlak mulia, dan siap menghadapi tantangan zaman.  
+    </p>
+    <button class="btn" onclick="toggleSchools()">Lihat Pilihan Sekolah</button>
+
+    <div class="school-list" id="schools">
+      <a href="#">RA Al Izzah</a>
+      <a href="#">SDIT Al Izzah 1</a>
+      <a href="#">SDIT Al Izzah 2</a>
+      <a href="#">SMPIT Al Izzah Fullday</a>
+      <a href="#">SMPIT Al Izzah Boarding</a>
+      <a href="#">SMAIT Al Izzah Boarding</a>
     </div>
   </section>
 
-  <!-- PILIHAN SEKOLAH -->
-  <section id="pilihan" class="py-12 bg-white">
-    <div class="container mx-auto text-center">
-      <h3 class="text-2xl font-bold text-green-800 mb-6">Pilih Jenjang Sekolah</h3>
-      <div class="grid md:grid-cols-3 gap-6 px-6">
-
-        <!-- RA -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">RA Al Izzah</h4>
-          <p class="text-sm mb-4">Tumbuh dalam cinta dan keceriaan belajar.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-        <!-- SDIT 1 -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">SDIT Al Izzah 1</h4>
-          <p class="text-sm mb-4">Membangun karakter dan kecerdasan anak sejak dini.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-        <!-- SDIT 2 -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">SDIT Al Izzah 2</h4>
-          <p class="text-sm mb-4">Sekolah unggulan dengan pembinaan islami.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-        <!-- SMPIT Full Day -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">SMPIT Fullday</h4>
-          <p class="text-sm mb-4">Menumbuhkan potensi akademik dan spiritual siswa.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-        <!-- SMPIT Boarding -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">SMPIT Boarding</h4>
-          <p class="text-sm mb-4">Pembinaan intensif dalam lingkungan islami.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-        <!-- SMAIT Boarding -->
-        <div class="bg-green-100 shadow-lg rounded-2xl p-6 hover:bg-green-200 transition">
-          <h4 class="text-xl font-semibold text-green-900 mb-2">SMAIT Boarding</h4>
-          <p class="text-sm mb-4">Membentuk generasi pemimpin berakhlak dan berilmu.</p>
-          <a href="#" class="bg-yellow-400 text-green-900 font-semibold py-2 px-4 rounded-lg hover:bg-yellow-300">Daftar Sekarang</a>
-        </div>
-
-      </div>
+  <footer>
+    <p>Ikuti Kami di Media Sosial</p>
+    <div class="social">
+      <a href="https://instagram.com/alizzahserang" target="_blank">Instagram</a> |
+      <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a> |
+      <a href="https://youtube.com/@alizzahserang" target="_blank">YouTube</a>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-green-800 text-yellow-200 py-6">
-    <div class="container mx-auto text-center">
-      <p class="mb-3 font-semibold">Ikuti Kami di Media Sosial:</p>
-      <div class="flex justify-center space-x-4 mb-4">
-        <a href="https://instagram.com/alizzahserang" target="_blank" class="hover:text-white">📸 Instagram</a>
-        <a href="https://wa.me/6281234567890" target="_blank" class="hover:text-white">💬 WhatsApp</a>
-        <a href="https://youtube.com/@alizzahserang" target="_blank" class="hover:text-white">▶️ YouTube</a>
-      </div>
-      <p class="text-sm">&copy; 2025 Yayasan Al Izzah Serang. All rights reserved.</p>
-    </div>
+    <p style="margin-top:10px; font-size:13px;">&copy; 2025 Yayasan Al Izzah Serang</p>
   </footer>
+
+  <script>
+    function toggleSchools() {
+      const list = document.getElementById("schools");
+      if (list.style.display === "block") {
+        list.style.display = "none";
+      } else {
+        list.style.display = "block";
+      }
+    }
+  </script>
 
 </body>
 </html>
-
