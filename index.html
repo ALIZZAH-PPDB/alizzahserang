@@ -1,202 +1,216 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yayasan Al Izzah Serang</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: #0b6623;
-      color: white;
+      font-family: "Poppins", sans-serif;
+      background-color: #f5fff3;
+      color: #1c3b28;
       text-align: center;
-      padding: 30px 10px;
     }
-
+    header {
+      background: linear-gradient(135deg, #1c5c3a, #1c3b28);
+      color: #fff;
+      padding: 40px 20px;
+    }
+    header img {
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
     header h1 {
       margin: 0;
-      font-size: 2em;
-      color: #ffcc00;
+      font-size: 28px;
+      letter-spacing: 1px;
     }
-
     header p {
       font-style: italic;
-      margin: 5px 0 20px;
+      color: #ffdf70;
+      margin-top: 5px;
+      font-size: 16px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 50px 20px 80px;
-      background: linear-gradient(135deg, #0b6623, #f2c200);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-    }
-
-    .hero button {
-      background-color: #ffcc00;
-      color: #0b6623;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .hero button:hover {
-      background-color: #ffb300;
-      transform: scale(1.05);
-    }
-
-    /* --- Gambar dekoratif di kanan bawah --- */
-    .hero img {
-      position: absolute;
-      bottom: 0;
-      right: 20px;
-      width: 220px;
-      max-width: 40%;
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.3));
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    /* --- Bagian pilihan sekolah --- */
-    .schools {
+    .section {
       display: none;
-      background-color: white;
       padding: 30px 20px;
-      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 0.6s ease;
+    }
+    .active {
+      display: block;
     }
 
-    .school {
-      background-color: #e9f7ef;
-      border-left: 6px solid #0b6623;
-      margin: 15px auto;
-      padding: 15px;
-      width: 90%;
-      max-width: 500px;
-      border-radius: 12px;
-    }
-
-    .school h3 {
-      margin: 5px 0;
-      color: #0b6623;
-    }
-
-    .school ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .school li {
-      background: #fdf6d5;
-      margin: 5px;
-      padding: 5px 10px;
-      border-radius: 8px;
-    }
-
-    footer {
-      background-color: #0b6623;
-      color: white;
-      text-align: center;
-      padding: 15px;
+    .welcome {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 30px;
       margin-top: 40px;
     }
 
-    .socials a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
+    .btn {
+      background: #ffb703;
+      color: #1c3b28;
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ffd166;
     }
 
-    @media (max-width: 768px) {
-      .hero img {
-        width: 160px;
-        right: 10px;
-        bottom: -10px;
-        opacity: 0.9;
-      }
+    .schools {
+      margin-top: 40px;
+    }
+    .school-card {
+      background: #eaffd0;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      width: 80%;
+      cursor: pointer;
+    }
+    .school-card:hover {
+      background: #caffbf;
+      transform: translateY(-4px);
+    }
+
+    .class-list {
+      display: none;
+      margin-top: 10px;
+      text-align: left;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .class-list li {
+      list-style: none;
+      padding: 6px 0;
+      border-bottom: 1px solid #eaeaea;
+    }
+    .class-list li:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      background: #1c5c3a;
+      color: #fff;
+      padding: 30px 10px;
+      margin-top: 60px;
+    }
+    .social a {
+      margin: 0 10px;
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      color: #ffdf70;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
 
   <header>
+    <img src="logo.png" alt="Logo Yayasan Al Izzah Serang">
     <h1>YAYASAN AL IZZAH SERANG</h1>
     <p>"Mendidik dengan Cinta dan Keteladanan"</p>
   </header>
 
-  <section class="hero">
-    <h2>Selamat Datang di Portal Pendaftaran</h2>
-    <p>Silakan klik tombol di bawah untuk melihat pilihan sekolah kami.</p>
-    <button onclick="showSchools()">Lihat Pilihan Sekolah</button>
-    <!-- Gambar icon di pojok bawah kanan -->
-    <img src="icon.png" alt="Siswa Yayasan Al Izzah">
+  <!-- Halaman Selamat Datang -->
+  <section id="welcome" class="section active">
+    <div class="welcome">
+      <h2>Selamat Datang</h2>
+      <p>
+        Di website resmi Yayasan Al Izzah Serang.  
+        Kami berkomitmen mencetak generasi Islami yang berprestasi,  
+        berakhlak mulia, dan siap menghadapi tantangan zaman.  
+      </p>
+      <button class="btn" onclick="showSchools()">Lihat Pilihan Sekolah</button>
+    </div>
   </section>
 
-  <section class="schools" id="schools">
-    <h2>Pilihan Sekolah</h2>
+  <!-- Halaman Pilihan Sekolah -->
+  <section id="schools" class="section">
+    <h2>Pilihan Sekolah di Yayasan Al Izzah Serang</h2>
+    <div class="schools">
 
-    <div class="school">
-      <h3>RA Al Izzah</h3>
-      <ul>
-        <li>Play Group</li>
-        <li>RA A</li>
-        <li>RA B</li>
-        <li>KIDS CARE</li>
-      </ul>
+      <div class="school-card" onclick="toggleClassList('ra')">
+        RA Al Izzah ⬇
+        <ul id="ra" class="class-list">
+          <li>Play Group</li>
+          <li>RA A</li>
+          <li>RA B</li>
+          <li>Kids Care</li>
+        </ul>
+      </div>
+
+      <div class="school-card" onclick="toggleClassList('sdit1')">
+        SDIT 1 Al Izzah ⬇
+        <ul id="sdit1" class="class-list">
+          <li>Billingual</li>
+          <li>Reguler</li>
+        </ul>
+      </div>
+
+      <div class="school-card">SDIT 2 Al Izzah</div>
+      <div class="school-card">SMPIT Al Izzah Fullday</div>
+      <div class="school-card">SMPIT Al Izzah Boarding</div>
+      <div class="school-card">SMAIT Al Izzah Boarding</div>
     </div>
-
-    <div class="school">
-      <h3>SDIT 1 Al Izzah</h3>
-      <ul>
-        <li>Bilingual</li>
-        <li>Reguler</li>
-      </ul>
-    </div>
-
-    <div class="school"><h3>SDIT 2 Al Izzah</h3></div>
-    <div class="school"><h3>SMPIT Fullday</h3></div>
-    <div class="school"><h3>SMPIT Boarding</h3></div>
-    <div class="school"><h3>SMAIT Boarding</h3></div>
+    <button class="btn" onclick="showWelcome()">⬅ Kembali</button>
   </section>
 
   <footer>
-    <p>Ikuti kami di media sosial:</p>
-    <div class="socials">
-      <a href="#">Facebook</a> |
-      <a href="#">Instagram</a> |
-      <a href="#">YouTube</a>
+    <p>Ikuti Kami di Media Sosial</p>
+    <div class="social">
+      <a href="https://instagram.com/alizzahserang" target="_blank">Instagram</a> |
+      <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a> |
+      <a href="https://youtube.com/@alizzahserang" target="_blank">YouTube</a>
     </div>
-    <p>&copy; 2025 Yayasan Al Izzah Serang</p>
+    <p style="margin-top:10px; font-size:13px;">&copy; 2025 Yayasan Al Izzah Serang</p>
   </footer>
 
   <script>
     function showSchools() {
-      document.getElementById("schools").style.display = "block";
-      window.scrollTo({ top: document.getElementById("schools").offsetTop, behavior: "smooth" });
+      document.getElementById("welcome").classList.remove("active");
+      document.getElementById("schools").classList.add("active");
+      window.scrollTo(0,0);
+    }
+
+    function showWelcome() {
+      document.getElementById("schools").classList.remove("active");
+      document.getElementById("welcome").classList.add("active");
+      window.scrollTo(0,0);
+    }
+
+    function toggleClassList(id) {
+      const list = document.getElementById(id);
+      const allLists = document.querySelectorAll('.class-list');
+      allLists.forEach(l => {
+        if (l !== list) l.style.display = "none"; // tutup yang lain
+      });
+      list.style.display = (list.style.display === "block") ? "none" : "block";
     }
   </script>
 
