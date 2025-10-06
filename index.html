@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yayasan Al Izzah Serang</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #f8f9fa;
-      color: #333;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #0b6623; /* hijau tua */
+      background-color: #0b6623;
       color: white;
       text-align: center;
       padding: 30px 10px;
@@ -22,7 +22,7 @@
     header h1 {
       margin: 0;
       font-size: 2em;
-      color: #ffcc00; /* kuning */
+      color: #ffcc00;
     }
 
     header p {
@@ -32,21 +32,21 @@
 
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px 80px;
       background: linear-gradient(135deg, #0b6623, #f2c200);
       color: white;
-    }
-
-    .hero img {
-      max-width: 350px;
-      width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
     }
 
     .hero h2 {
-      margin-top: 20px;
       font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
     }
 
     .hero button {
@@ -56,7 +56,6 @@
       padding: 12px 25px;
       border-radius: 25px;
       font-size: 1em;
-      margin-top: 20px;
       cursor: pointer;
       transition: 0.3s;
     }
@@ -66,6 +65,24 @@
       transform: scale(1.05);
     }
 
+    /* --- Gambar dekoratif di kanan bawah --- */
+    .hero img {
+      position: absolute;
+      bottom: 0;
+      right: 20px;
+      width: 220px;
+      max-width: 40%;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.3));
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* --- Bagian pilihan sekolah --- */
     .schools {
       display: none;
       background-color: white;
@@ -113,20 +130,30 @@
       margin: 0 10px;
       text-decoration: none;
     }
+
+    @media (max-width: 768px) {
+      .hero img {
+        width: 160px;
+        right: 10px;
+        bottom: -10px;
+        opacity: 0.9;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>YAYASAN AL IZZAH SERANG</h1>
-    <p>“Menjadi Yayasan Islam yang Unggul dalam Pendidikan di Tingkat Nasional”</p>
+    <p>"Mendidik dengan Cinta dan Keteladanan"</p>
   </header>
 
   <section class="hero">
-    <img src="icon.png" alt="Foto Siswa Yayasan Al Izzah">
     <h2>Selamat Datang di Portal Pendaftaran</h2>
     <p>Silakan klik tombol di bawah untuk melihat pilihan sekolah kami.</p>
     <button onclick="showSchools()">Lihat Pilihan Sekolah</button>
+    <!-- Gambar icon di pojok bawah kanan -->
+    <img src="icon.png" alt="Siswa Yayasan Al Izzah">
   </section>
 
   <section class="schools" id="schools">
@@ -175,5 +202,3 @@
 
 </body>
 </html>
-
-
